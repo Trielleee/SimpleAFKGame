@@ -99,7 +99,7 @@ export class AppUI {
           <button class="class-card ${active}" type="button" data-class-id="${classConfig.id}">
             <strong>${classConfig.name}</strong>
             <span>${classConfig.description}</span>
-            <span>ATK ${classConfig.baseStats.attack} / DEF ${classConfig.baseStats.defense} / HP ${classConfig.baseStats.maxHp}</span>
+            <span>\u653b ${classConfig.baseStats.attack} / \u9632 ${classConfig.baseStats.defense} / \u8840 ${classConfig.baseStats.maxHp}</span>
           </button>
         `;
       })
@@ -129,15 +129,15 @@ export class AppUI {
     const nextExp = this.characterSystem.getNextLevelExp(player.level);
 
     this.playerName.textContent = player.name;
-    this.playerMeta.textContent = `${classConfig.name} Lv.${player.level} - EXP ${player.exp}/${nextExp}`;
-    this.goldText.textContent = `Gold ${player.gold}`;
-    this.powerText.textContent = `Power ${this.characterSystem.getPower()}`;
+    this.playerMeta.textContent = `${classConfig.name} \u7b49\u7ea7 ${player.level} - \u7ecf\u9a8c ${player.exp}/${nextExp}`;
+    this.goldText.textContent = `\u91d1\u5e01 ${player.gold}`;
+    this.powerText.textContent = `\u6218\u529b ${this.characterSystem.getPower()}`;
 
     this.statsView.innerHTML = [
-      ["HP", `${player.currentHp}/${stats.maxHp}`],
-      ["ATK", stats.attack],
-      ["DEF", stats.defense],
-      ["ASPD", stats.attackSpeed],
+      ["\u751f\u547d", `${player.currentHp}/${stats.maxHp}`],
+      ["\u653b\u51fb", stats.attack],
+      ["\u9632\u5fa1", stats.defense],
+      ["\u653b\u901f", stats.attackSpeed],
     ]
       .map(([label, value]) => `<div class="stat"><span>${label}</span><strong>${value}</strong></div>`)
       .join("");
@@ -151,7 +151,7 @@ export class AppUI {
         return `
           <button class="map-button ${active}" type="button" data-map-id="${map.id}" ${unlocked ? "" : "disabled"}>
             <strong>${map.name}</strong>
-            <small>Recommended Lv.${map.recommendedLevel}</small>
+            <small>\u63a8\u8350\u7b49\u7ea7 ${map.recommendedLevel}</small>
           </button>
         `;
       })
@@ -164,23 +164,23 @@ export class AppUI {
     const combat = snapshot.combat;
     const monster = combat.monster;
     const statusText = {
-      idle: "Searching",
-      fighting: "Fighting",
-      resting: `Resting ${Math.ceil(combat.respawnTimer / 1000)}s`,
+      idle: "\u5bfb\u627e\u602a\u7269\u4e2d",
+      fighting: "\u6218\u6597\u4e2d",
+      resting: `\u4f11\u606f\u4e2d ${Math.ceil(combat.respawnTimer / 1000)} \u79d2`,
     };
 
-    this.combatStatus.textContent = statusText[combat.status] ?? "Ready";
+    this.combatStatus.textContent = statusText[combat.status] ?? "\u51c6\u5907\u4e2d";
 
     if (!monster) {
-      this.monsterView.innerHTML = "<p>No target</p>";
+      this.monsterView.innerHTML = "<p>\u6682\u65e0\u76ee\u6807</p>";
       return;
     }
 
     const hpPercent = Math.max(0, Math.round((monster.currentHp / monster.maxHp) * 100));
     this.monsterView.innerHTML = `
       <div>
-        <strong>${monster.name} Lv.${monster.level}</strong>
-        <span>${monster.currentHp}/${monster.maxHp} HP</span>
+        <strong>${monster.name} \u7b49\u7ea7 ${monster.level}</strong>
+        <span>${monster.currentHp}/${monster.maxHp} \u751f\u547d</span>
       </div>
       <div class="hp-bar"><div class="hp-fill" style="width: ${hpPercent}%"></div></div>
     `;
@@ -194,7 +194,7 @@ export class AppUI {
           <div class="slot-row">
             <div>
               <strong>${label}</strong>
-              <span>${item ? this.getItemText(item) : "Empty"}</span>
+              <span>${item ? this.getItemText(item) : "\u672a\u88c5\u5907"}</span>
             </div>
           </div>
         `;
@@ -207,7 +207,7 @@ export class AppUI {
     const countText = `${items.length}/${snapshot.inventory.capacity}`;
 
     if (items.length === 0) {
-      this.inventoryView.innerHTML = `<p>Empty ${countText}</p>`;
+      this.inventoryView.innerHTML = `<p>\u80cc\u5305\u4e3a\u7a7a ${countText}</p>`;
       return;
     }
 
@@ -219,11 +219,11 @@ export class AppUI {
             <div class="item-row">
               <div class="item-main">
                 <strong class="${QUALITIES[item.quality].className}">${item.name}</strong>
-                <span>${this.getItemText(item)} - Sell ${item.sellValue}</span>
+                <span>${this.getItemText(item)} - \u552e\u4ef7 ${item.sellValue}</span>
               </div>
               <div class="item-actions">
-                <button type="button" data-equip-id="${item.id}">Equip</button>
-                <button class="danger" type="button" data-sell-id="${item.id}">Sell</button>
+                <button type="button" data-equip-id="${item.id}">\u7a7f\u6234</button>
+                <button class="danger" type="button" data-sell-id="${item.id}">\u51fa\u552e</button>
               </div>
             </div>
           `,
@@ -242,15 +242,15 @@ export class AppUI {
 
   getItemText(item) {
     const labels = {
-      attack: "ATK",
-      defense: "DEF",
-      maxHp: "HP",
-      attackSpeed: "ASPD",
+      attack: "\u653b\u51fb",
+      defense: "\u9632\u5fa1",
+      maxHp: "\u751f\u547d",
+      attackSpeed: "\u653b\u901f",
     };
     const stats = Object.entries(item.stats)
       .map(([key, value]) => `${labels[key] ?? key} +${value}`)
       .join(" / ");
 
-    return `Lv.${item.level} ${QUALITIES[item.quality].name} - ${stats}`;
+    return `\u7b49\u7ea7 ${item.level} ${QUALITIES[item.quality].name} - ${stats}`;
   }
 }

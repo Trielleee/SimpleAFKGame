@@ -46,7 +46,7 @@ export class CombatSystem {
     state.combat.monsterAttackTimer = 0;
 
     this.eventBus.emit("combat:monsterSpawned", { monster });
-    this.eventBus.emit("combat:log", { message: `${monster.name} appears` });
+    this.eventBus.emit("combat:log", { message: `${monster.name} \u51fa\u73b0\u4e86` });
     this.eventBus.emit("ui:refreshRequested");
   }
 
@@ -59,7 +59,7 @@ export class CombatSystem {
       state.player.currentHp = stats.maxHp;
       state.combat.status = "idle";
       state.combat.respawnTimer = 0;
-      this.eventBus.emit("combat:log", { message: "Rested and ready" });
+      this.eventBus.emit("combat:log", { message: "\u4f11\u606f\u5b8c\u6bd5\uff0c\u7ee7\u7eed\u5192\u9669" });
     }
 
     this.eventBus.emit("ui:refreshRequested");
@@ -81,7 +81,7 @@ export class CombatSystem {
       combat.playerAttackTimer = 0;
       const damage = this.calculateDamage(playerStats.attack, monster.defense);
       monster.currentHp = Math.max(0, monster.currentHp - damage);
-      this.eventBus.emit("combat:log", { message: `You hit ${monster.name} for ${damage}` });
+      this.eventBus.emit("combat:log", { message: `\u4f60\u5bf9 ${monster.name} \u9020\u6210 ${damage} \u4f24\u5bb3` });
 
       if (monster.currentHp <= 0) {
         this.killMonster(monster);
@@ -93,7 +93,7 @@ export class CombatSystem {
       combat.monsterAttackTimer = 0;
       const damage = this.calculateDamage(monster.attack, playerStats.defense);
       state.player.currentHp = Math.max(0, state.player.currentHp - damage);
-      this.eventBus.emit("combat:log", { message: `${monster.name} hits you for ${damage}` });
+      this.eventBus.emit("combat:log", { message: `${monster.name} \u5bf9\u4f60\u9020\u6210 ${damage} \u4f24\u5bb3` });
 
       if (state.player.currentHp <= 0) {
         this.defeatPlayer();
@@ -124,7 +124,7 @@ export class CombatSystem {
       gold,
     });
     this.eventBus.emit("player:expGained", { exp: monster.expReward });
-    this.eventBus.emit("combat:log", { message: `Defeated ${monster.name}: +${monster.expReward} exp, +${gold} gold` });
+    this.eventBus.emit("combat:log", { message: `\u51fb\u8d25 ${monster.name}\uff0c\u83b7\u5f97 ${monster.expReward} \u7ecf\u9a8c\u3001${gold} \u91d1\u5e01` });
 
     if (Math.random() < map.dropChance) {
       const item = this.equipmentSystem.createDrop(map.dropLevel);
@@ -141,7 +141,7 @@ export class CombatSystem {
     state.combat.respawnTimer = 4000;
 
     this.eventBus.emit("combat:playerDefeated");
-    this.eventBus.emit("combat:log", { message: "You were defeated and are resting" });
+    this.eventBus.emit("combat:log", { message: "\u4f60\u88ab\u51fb\u5012\u4e86\uff0c\u6b63\u5728\u4f11\u606f" });
     this.eventBus.emit("ui:refreshRequested");
   }
 }

@@ -37,7 +37,7 @@ export class OfflineRewardSystem {
       itemCount,
     });
     this.eventBus.emit("combat:log", {
-      message: `Offline ${Math.floor(cappedSeconds / 60)} min: +${exp} exp, +${gold} gold`,
+      message: `\u79bb\u7ebf ${Math.floor(cappedSeconds / 60)} \u5206\u949f\uff0c\u83b7\u5f97 ${exp} \u7ecf\u9a8c\u3001${gold} \u91d1\u5e01`,
     });
     this.eventBus.emit("ui:refreshRequested");
   }

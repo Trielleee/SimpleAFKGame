@@ -1,14 +1,14 @@
 export const EQUIPMENT_SLOTS = {
-  weapon: "Weapon",
-  helmet: "Helmet",
-  armor: "Armor",
-  boots: "Boots",
+  weapon: "\u6b66\u5668",
+  helmet: "\u5934\u76d4",
+  armor: "\u8863\u670d",
+  boots: "\u978b\u5b50",
 };
 
 export const QUALITIES = {
   common: {
     id: "common",
-    name: "Common",
+    name: "\u666e\u901a",
     className: "quality-common",
     multiplier: 1,
     sellMultiplier: 1,
@@ -16,7 +16,7 @@ export const QUALITIES = {
   },
   uncommon: {
     id: "uncommon",
-    name: "Uncommon",
+    name: "\u4f18\u79c0",
     className: "quality-uncommon",
     multiplier: 1.35,
     sellMultiplier: 1.5,
@@ -24,7 +24,7 @@ export const QUALITIES = {
   },
   rare: {
     id: "rare",
-    name: "Rare",
+    name: "\u7a00\u6709",
     className: "quality-rare",
     multiplier: 1.8,
     sellMultiplier: 2.2,
@@ -32,7 +32,7 @@ export const QUALITIES = {
   },
   epic: {
     id: "epic",
-    name: "Epic",
+    name: "\u53f2\u8bd7",
     className: "quality-epic",
     multiplier: 2.5,
     sellMultiplier: 3.5,
