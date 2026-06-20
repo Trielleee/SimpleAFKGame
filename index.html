@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple AFK RPG</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="createPanel" class="create-panel">
+        <div class="create-box">
+          <h1>Simple AFK RPG</h1>
+          <label>
+            Character Name
+            <input id="characterName" type="text" maxlength="12" value="Adventurer" />
+          </label>
+          <div class="class-options" id="classOptions"></div>
+          <button id="createCharacterBtn" type="button">Create Character</button>
+          <p id="moduleWarning" class="module-warning hidden">
+            JavaScript modules did not load. Please open this page through a local web server.
+          </p>
+        </div>
+      </section>
+
+      <section id="gamePanel" class="game-panel hidden">
+        <header class="topbar">
+          <div>
+            <h1 id="playerName">-</h1>
+            <p id="playerMeta">-</p>
+          </div>
+          <div class="resource-row">
+            <span id="goldText">Gold 0</span>
+            <span id="powerText">Power 0</span>
+          </div>
+        </header>
+
+        <section class="layout">
+          <aside class="sidebar">
+            <section class="panel">
+              <h2>Character</h2>
+              <div id="statsView" class="stat-grid"></div>
+            </section>
+
+            <section class="panel">
+              <h2>Maps</h2>
+              <div id="mapList" class="button-list"></div>
+            </section>
+          </aside>
+
+          <section class="center">
+            <section class="panel combat-panel">
+              <div class="panel-title-row">
+                <h2>Combat</h2>
+                <span id="currentMapText">-</span>
+              </div>
+              <div id="combatStatus" class="combat-status">Ready</div>
+              <div id="monsterView" class="monster-view"></div>
+            </section>
+
+            <section class="panel">
+              <h2>Combat Log</h2>
+              <div id="logView" class="log-view"></div>
+            </section>
+          </section>
+
+          <aside class="sidebar">
+            <section class="panel">
+              <h2>Equipment</h2>
+              <div id="equipmentView" class="equipment-view"></div>
+            </section>
+
+            <section class="panel">
+              <h2>Inventory</h2>
+              <div id="inventoryView" class="inventory-view"></div>
+            </section>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+    <script>
+      window.setTimeout(function () {
+        if (!window.__simpleAfkReady) {
+          var warning = document.querySelector("#moduleWarning");
+          if (warning) warning.classList.remove("hidden");
+        }
+      }, 1200);
+    </script>
+  </body>
+</html>
