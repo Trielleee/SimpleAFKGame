@@ -102,7 +102,7 @@ export class EquipmentSystem {
     }
 
     this.eventBus.emit("equipment:changed", { slot: item.slot, item });
-    this.eventBus.emit("combat:log", { message: `\u88c5\u5907\u4e86 ${item.name}` });
+    this.eventBus.emit("combat:log", { message: `装备了 ${item.name}` });
     this.eventBus.emit("ui:refreshRequested");
   }
 

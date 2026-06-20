@@ -25,7 +25,7 @@ export class CharacterSystem {
 
     state.player = {
       id: createId("player"),
-      name: name.trim() || "\u5192\u9669\u8005",
+      name: name.trim() || "冒险者",
       classId: classConfig.id,
       level: 1,
       exp: 0,
@@ -93,7 +93,7 @@ export class CharacterSystem {
     player.currentHp = this.getTotalStats().maxHp;
 
     this.eventBus.emit("player:levelUp", { level: player.level });
-    this.eventBus.emit("combat:log", { message: `\u7b49\u7ea7\u63d0\u5347\u5230 ${player.level}` });
+    this.eventBus.emit("combat:log", { message: `等级提升到 ${player.level}` });
     this.eventBus.emit("ui:refreshRequested");
   }
 

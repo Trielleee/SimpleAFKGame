@@ -18,13 +18,13 @@ export class InventorySystem {
   addItem(item) {
     const state = this.gameState.getMutableState();
     if (state.inventory.items.length >= state.inventory.capacity) {
-      this.eventBus.emit("combat:log", { message: `\u80cc\u5305\u5df2\u6ee1\uff0c${item.name} \u88ab\u4e22\u5f03` });
+      this.eventBus.emit("combat:log", { message: `背包已满，${item.name} 被丢弃` });
       return false;
     }
 
     state.inventory.items.push(item);
     this.eventBus.emit("inventory:itemAdded", { item });
-    this.eventBus.emit("combat:log", { message: `\u83b7\u5f97\u88c5\u5907\uff1a${item.name}` });
+    this.eventBus.emit("combat:log", { message: `获得装备：${item.name}` });
     this.eventBus.emit("ui:refreshRequested");
     return true;
   }
@@ -36,7 +36,7 @@ export class InventorySystem {
 
     const [item] = state.inventory.items.splice(itemIndex, 1);
     this.characterSystem.addGold(item.sellValue);
-    this.eventBus.emit("combat:log", { message: `\u51fa\u552e ${item.name}\uff0c\u83b7\u5f97 ${item.sellValue} \u91d1\u5e01` });
+    this.eventBus.emit("combat:log", { message: `出售 ${item.name}，获得 ${item.sellValue} 金币` });
     this.eventBus.emit("ui:refreshRequested");
   }
 }

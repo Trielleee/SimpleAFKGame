@@ -1,7 +1,7 @@
 export const MONSTERS = {
   slime: {
     id: "slime",
-    name: "\u8f6f\u6ce5\u602a",
+    name: "软泥怪",
     level: 1,
     maxHp: 35,
     attack: 5,
@@ -12,7 +12,7 @@ export const MONSTERS = {
   },
   wolf: {
     id: "wolf",
-    name: "\u8352\u539f\u72fc",
+    name: "荒原狼",
     level: 2,
     maxHp: 52,
     attack: 8,
@@ -23,7 +23,7 @@ export const MONSTERS = {
   },
   shadow_bat: {
     id: "shadow_bat",
-    name: "\u5f71\u8759",
+    name: "影蝠",
     level: 4,
     maxHp: 88,
     attack: 14,
@@ -34,7 +34,7 @@ export const MONSTERS = {
   },
   thorn_boar: {
     id: "thorn_boar",
-    name: "\u68d8\u80cc\u91ce\u732a",
+    name: "棘背野猪",
     level: 5,
     maxHp: 120,
     attack: 17,
@@ -45,7 +45,7 @@ export const MONSTERS = {
   },
   mine_bandit: {
     id: "mine_bandit",
-    name: "\u77ff\u6d1e\u76d7\u532a",
+    name: "矿洞盗匪",
     level: 7,
     maxHp: 160,
     attack: 24,
@@ -56,7 +56,7 @@ export const MONSTERS = {
   },
   stone_guard: {
     id: "stone_guard",
-    name: "\u788e\u77f3\u5b88\u536b",
+    name: "碎石守卫",
     level: 8,
     maxHp: 220,
     attack: 28,

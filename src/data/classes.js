@@ -1,8 +1,8 @@
 export const CLASSES = {
   warrior: {
     id: "warrior",
-    name: "\u6218\u58eb",
-    description: "\u9ad8\u751f\u547d\u548c\u9632\u5fa1\uff0c\u7a33\u5b9a\u8fd1\u6218\u8f93\u51fa\u3002",
+    name: "战士",
+    description: "高生命和防御，稳定近战输出。",
     baseStats: {
       attack: 8,
       defense: 5,
@@ -18,8 +18,8 @@ export const CLASSES = {
   },
   mage: {
     id: "mage",
-    name: "\u6cd5\u5e08",
-    description: "\u653b\u51fb\u9ad8\uff0c\u9632\u5fa1\u4f4e\uff0c\u6e05\u602a\u6548\u7387\u597d\u3002",
+    name: "法师",
+    description: "攻击高，防御低，清怪效率好。",
     baseStats: {
       attack: 12,
       defense: 2,
@@ -35,8 +35,8 @@ export const CLASSES = {
   },
   ranger: {
     id: "ranger",
-    name: "\u6e38\u4fa0",
-    description: "\u653b\u901f\u8f83\u5feb\uff0c\u5c5e\u6027\u5747\u8861\u3002",
+    name: "游侠",
+    description: "攻速较快，属性均衡。",
     baseStats: {
       attack: 9,
       defense: 3,

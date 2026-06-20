@@ -1,7 +1,7 @@
 export const MAPS = {
   novice_plains: {
     id: "novice_plains",
-    name: "\u65b0\u624b\u5e73\u539f",
+    name: "新手平原",
     recommendedLevel: 1,
     monsterIds: ["slime", "wolf"],
     dropLevel: 1,
@@ -9,7 +9,7 @@ export const MAPS = {
   },
   gloom_forest: {
     id: "gloom_forest",
-    name: "\u5e7d\u6697\u68ee\u6797",
+    name: "幽暗森林",
     recommendedLevel: 4,
     monsterIds: ["shadow_bat", "thorn_boar"],
     dropLevel: 4,
@@ -17,7 +17,7 @@ export const MAPS = {
   },
   broken_mine: {
     id: "broken_mine",
-    name: "\u7834\u788e\u77ff\u6d1e",
+    name: "破碎矿洞",
     recommendedLevel: 7,
     monsterIds: ["mine_bandit", "stone_guard"],
     dropLevel: 7,

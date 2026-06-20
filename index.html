@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&#31616;&#26131;&#25918;&#32622; RPG</title>
+    <title>简易放置 RPG</title>
     <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
     <main class="app">
       <section id="createPanel" class="create-panel">
         <div class="create-box">
-          <h1>&#31616;&#26131;&#25918;&#32622; RPG</h1>
+          <h1>简易放置 RPG</h1>
           <label>
-            &#35282;&#33394;&#21517;
-            <input id="characterName" type="text" maxlength="12" value="&#20882;&#38505;&#32773;" />
+            角色名
+            <input id="characterName" type="text" maxlength="12" value="冒险者" />
           </label>
           <div class="class-options" id="classOptions"></div>
-          <button id="createCharacterBtn" type="button">&#21019;&#24314;&#35282;&#33394;</button>
+          <button id="createCharacterBtn" type="button">创建角色</button>
           <p id="moduleWarning" class="module-warning hidden">
-            JavaScript &#27169;&#22359;&#26410;&#21152;&#36733;&#12290;&#35831;&#36890;&#36807;&#26412;&#22320;&#26381;&#21153;&#22120;&#25171;&#24320;&#27492;&#39029;&#38754;&#12290;
+            JavaScript 模块未加载。请通过本地服务器打开此页面。
           </p>
         </div>
       </section>
@@ -30,20 +30,20 @@
             <p id="playerMeta">-</p>
           </div>
           <div class="resource-row">
-            <span id="goldText">&#37329;&#24065; 0</span>
-            <span id="powerText">&#25112;&#21147; 0</span>
+            <span id="goldText">金币 0</span>
+            <span id="powerText">战力 0</span>
           </div>
         </header>
 
         <section class="layout">
           <aside class="sidebar">
             <section class="panel">
-              <h2>&#35282;&#33394;</h2>
+              <h2>角色</h2>
               <div id="statsView" class="stat-grid"></div>
             </section>
 
             <section class="panel">
-              <h2>&#22320;&#22270;</h2>
+              <h2>地图</h2>
               <div id="mapList" class="button-list"></div>
             </section>
           </aside>
@@ -51,27 +51,27 @@
           <section class="center">
             <section class="panel combat-panel">
               <div class="panel-title-row">
-                <h2>&#25112;&#26007;</h2>
+                <h2>战斗</h2>
                 <span id="currentMapText">-</span>
               </div>
-              <div id="combatStatus" class="combat-status">&#20934;&#22791;&#20013;</div>
+              <div id="combatStatus" class="combat-status">准备中</div>
               <div id="monsterView" class="monster-view"></div>
             </section>
 
             <section class="panel">
-              <h2>&#25112;&#26007;&#26085;&#24535;</h2>
+              <h2>战斗日志</h2>
               <div id="logView" class="log-view"></div>
             </section>
           </section>
 
           <aside class="sidebar">
             <section class="panel">
-              <h2>&#35013;&#22791;</h2>
+              <h2>装备</h2>
               <div id="equipmentView" class="equipment-view"></div>
             </section>
 
             <section class="panel">
-              <h2>&#32972;&#21253;</h2>
+              <h2>背包</h2>
               <div id="inventoryView" class="inventory-view"></div>
             </section>
           </aside>

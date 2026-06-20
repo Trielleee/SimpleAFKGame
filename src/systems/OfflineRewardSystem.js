@@ -37,7 +37,7 @@ export class OfflineRewardSystem {
       itemCount,
     });
     this.eventBus.emit("combat:log", {
-      message: `\u79bb\u7ebf ${Math.floor(cappedSeconds / 60)} \u5206\u949f\uff0c\u83b7\u5f97 ${exp} \u7ecf\u9a8c\u3001${gold} \u91d1\u5e01`,
+      message: `离线 ${Math.floor(cappedSeconds / 60)} 分钟，获得 ${exp} 经验、${gold} 金币`,
     });
     this.eventBus.emit("ui:refreshRequested");
   }

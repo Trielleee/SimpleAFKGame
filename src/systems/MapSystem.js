@@ -24,7 +24,7 @@ export class MapSystem {
     state.combat.respawnTimer = 0;
 
     this.eventBus.emit("map:switched", { mapId });
-    this.eventBus.emit("combat:log", { message: `\u524d\u5f80 ${MAPS[mapId].name}` });
+    this.eventBus.emit("combat:log", { message: `前往 ${MAPS[mapId].name}` });
     this.eventBus.emit("ui:refreshRequested");
   }
 
